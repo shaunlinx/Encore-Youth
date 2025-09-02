@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>返乡青年宇宙第一次编剧会议 - 邀请函</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #f0f8f0;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 650px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 2px solid #c4e8c4;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2e8b57 0%, #7cbc8f 100%);
+            padding: 40px 30px;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .header::after {
+            content: "";
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 100' preserveAspectRatio='none'%3E%3Cpath d='M0,0 V100 H1000 V0 C900,80 800,100 600,60 C400,20 200,80 0,0 Z' fill='%23f0f8f0'/%3E%3C/svg%3E");
+            background-size: 1000px 100px;
+        }
+        
+        h1 {
+            font-family: 'Noto Sans SC', sans-serif;
+            font-weight: 900;
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            letter-spacing: 1px;
+        }
+        
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+        
+        .content {
+            padding: 50px 40px 40px;
+        }
+        
+        .details {
+            background: #eaf7ea;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 1px dashed #c4e8c4;
+        }
+        
+        .detail-item {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+        
+        .detail-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .icon {
+            width: 30px;
+            height: 30px;
+            margin-right: 15px;
+            background-color: #2e8b57;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .agenda {
+            margin: 35px 0;
+        }
+        
+        .agenda-item {
+            display: flex;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .agenda-time {
+            width: 80px;
+            flex-shrink: 0;
+            font-weight: bold;
+            color: #2e8b57;
+        }
+        
+        .agenda-content {
+            padding-left: 20px;
+            border-left: 2px solid #7cbc8f;
+            position: relative;
+            padding-bottom: 25px;
+        }
+        
+        .agenda-content::before {
+            content: "";
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #7cbc8f;
+        }
+        
+        .agenda-item:last-child .agenda-content {
+            border-left: 2px solid transparent;
+            padding-bottom: 0;
+        }
+        
+        .cta {
+            text-align: center;
+            margin: 40px 0 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #2e8b57;
+            color: white;
+            padding: 14px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(46, 139, 87, 0.3);
+        }
+        
+        .btn:hover {
+            background: #267349;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(46, 139, 87, 0.4);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #888;
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .highlight {
+            color: #2e8b57;
+            font-weight: bold;
+        }
+        
+        .note-box {
+            background: #f8fff8;
+            border-left: 4px solid #2e8b57;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .meeting-link {
+            color: #2e8b57;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .meeting-link:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 600px) {
+            .header {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .content {
+                padding: 40px 25px 30px;
+            }
+            
+            .detail-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .icon {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>返乡青年宇宙</h1>
+            <h2>第一次编剧会议 · 线上沙龙邀请</h2>
+        </div>
+        
+        <div class="content">
+            <div class="details">
+                <div class="detail-item">
+                    <div class="icon">📅</div>
+                    <div><span class="highlight">时间：</span>2025年9月3日（周三） 20:00-21:30</div>
+                </div>
+                <div class="detail-item">
+                    <div class="icon">📍</div>
+                    <div><span class="highlight">地点：</span>飞书会议（会议ID：277797157；会议链接：<a href="https://vc.feishu.cn/j/277797157" class="meeting-link">vc.feishu.cn/j/277797157</a>）</div>
+                </div>
+                <div class="detail-item">
+                    <div class="icon">👥</div>
+                    <div><span class="highlight">参与者：</span>安庆"洄游青年" × 安可青年伙伴</div>
+                </div>
+            </div>
+            
+            <p>亲爱的<b>YiCheng洄游青年</b>：</p>
+            <p>您好！我们是六安<b>"安可青年创变计划"</b>团队。我们关注到您在安庆所做的返乡青年内容创作，非常欣赏您的视角和行动力。</p>
+            <p>我们不想只是"聊聊合作"，而是想邀请您参加一场特别的<b>"编剧会议"</b>——让我们一起创作一部关于返乡青年的"连续剧"，探讨如何让皖西与皖南的返乡故事相互映照，产生更美妙的共鸣。</p>
+            
+            <h2>沙龙流程</h2>
+            <div class="agenda">
+                <div class="agenda-item">
+                    <div class="agenda-time">20:00</div>
+                    <div class="agenda-content">
+                        <strong>入场券 - "我的主角设定"</strong><br>
+                        用创意方式介绍自己，填写专属"人物卡"
+                    </div>
+                </div>
+                <div class="agenda-item">
+                    <div class="agenda-time">20:15</div>
+                    <div class="agenda-content">
+                        <strong>故事接龙 - "Yes, and..."</strong><br>
+                        脑洞大开的故事接龙，不拒绝任何可能性
+                    </div>
+                </div>
+                <div class="agenda-item">
+                    <div class="agenda-time">20:50</div>
+                    <div class="agenda-content">
+                        <strong>导演剪辑版 - "搞点实际的！"</strong><br>
+                        从脑洞中筛选出最心动和最离谱的想法
+                    </div>
+                </div>
+                <div class="agenda-item">
+                    <div class="agenda-time">21:10</div>
+                    <div class="agenda-content">
+                        <strong>杀青仪式</strong><br>
+                        确定合作试点，发布"开机通知"
+                    </div>
+                </div>
+            </div>
+            
+            <p>我们准备了共享白板工具和轻松有趣的互动环节，期待与您共同探索内容创作与青年发展的新可能！</p>
+            
+            <div class="cta">
+                <a href="#" class="btn">确认参与</a>
+            </div>
+            
+            <div class="note-box">
+                <p>沙龙时间暂定9月3日20:00-21:30，若有调整将于9月2日20：00前更新并及时告知</p>
+                <p>如有疑问，请联系：大熊 @ 微信LIN3EL69</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>安可青年创变计划 · 让家乡的舞台永远有下一场</p>
+            <p>© 2025 安可青年. 保留所有权利.</p>
+        </div>
+    </div>
+
+    <script>
+        // 简单的交互效果
+        document.querySelector('.btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('感谢您的参与确认！我们会尽快将会议详细信息发送给您。');
+        });
+    </script>
+</body>
+</html>
