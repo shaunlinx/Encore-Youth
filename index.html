@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>返乡创变者 · 青年发展探索之旅</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <div class="app" id="app">
+        <header class="app__header">
+            <h1 class="app__logo">返乡创变者</h1>
+            <button class="app__pause" id="pauseBtn" aria-label="暂停探索">
+                <span>暂停探索</span>
+            </button>
+        </header>
+
+        <main class="app__content" id="content">
+            <!-- 动态渲染 -->
+        </main>
+
+        <div class="app__progress" id="progressBar">
+            <div class="app__progress-bar" id="progressBarInner"></div>
+        </div>
+
+        <div class="floating-help" id="floatingHelp">
+            <button id="helpButton" aria-label="疑问咨询">
+                <span class="icon">?</span>
+            </button>
+        </div>
+    </div>
+
+    <template id="startTemplate">
+        <section class="screen screen--center start-screen">
+            <div class="start-screen__bg" aria-hidden="true"></div>
+            <div class="card start-screen__card">
+                <h2 class="start-screen__title">返乡创变者 · 青年发展探索之旅</h2>
+                <p class="start-screen__subtitle">以角色之名，开启返乡故事的奇妙冒险</p>
+                <div class="start-screen__actions">
+                    <button class="btn btn--primary" data-action="start">开启探索</button>
+                    <button class="btn btn--ghost" data-action="resume" hidden>继续未完成的探索</button>
+                </div>
+            </div>
+            <dialog class="dialog" id="identityDialog">
+                <form method="dialog">
+                    <h3 class="dialog__title">唤醒你的身份标签</h3>
+                    <p class="dialog__hint">连点三次卡片即可解锁隐藏身份！</p>
+                    <div class="identity-grid" id="identityGrid">
+                        <!-- 动态注入身份卡片 -->
+                    </div>
+                    <div class="dialog__footer">
+                        <button class="btn btn--ghost" value="cancel">暂不选择</button>
+                    </div>
+                </form>
+            </dialog>
+            <dialog class="dialog" id="resumeDialog">
+                <form method="dialog">
+                    <h3 class="dialog__title">继续探索？</h3>
+                    <p>检测到你有尚未完成的旅程，是否从上次离开的位置继续？</p>
+                    <div class="dialog__footer">
+                        <button class="btn btn--ghost" value="cancel">重新开始</button>
+                        <button class="btn btn--primary" value="resume">继续探索</button>
+                    </div>
+                </form>
+            </dialog>
+        </section>
+    </template>
+
+    <template id="introTemplate">
+        <section class="screen screen--center intro-screen">
+            <div class="card intro-card">
+                <h2>剧情引入</h2>
+                <p>你好呀，勇敢的返乡创变者！为了更好地助力青年返乡发展，我们想倾听你的真实经历～ 本次探索全程匿名，所有故事仅用于公益研究，绝对保密！你可以随时暂停旅程，完成全部探索后，将解锁专属你的返乡发展图鉴～ 预计6-10分钟，准备好出发了吗？</p>
+                <label class="checkbox">
+                    <input type="checkbox" id="introReady">
+                    <span>我已准备好分享我的返乡故事</span>
+                </label>
+                <button class="btn btn--primary" data-action="go" disabled>出发！开启探索之旅</button>
+            </div>
+        </section>
+    </template>
+
+    <template id="moduleTemplate">
+        <section class="screen module-screen" data-module>
+            <header class="module-screen__header">
+                <h2 class="module-screen__title"></h2>
+                <p class="module-screen__subtitle"></p>
+            </header>
+            <div class="module-screen__body" data-module-body></div>
+            <footer class="module-screen__footer">
+                <button class="btn btn--ghost" data-action="prev">上一步</button>
+                <button class="btn btn--primary" data-action="next" disabled>下一步</button>
+            </footer>
+        </section>
+    </template>
+
+    <template id="completionTemplate">
+        <section class="screen screen--scroll completion-screen">
+            <div class="completion-hero">
+                <div class="completion-hero__badges" id="badgeList">
+                    <!-- 徽章 -->
+                </div>
+                <div class="completion-hero__content">
+                    <h2>恭喜完成探索！</h2>
+                    <p>这是专属于你的返乡发展图鉴～ 你的故事将助力更多青年返乡，感谢你的分享！</p>
+                </div>
+            </div>
+            <div class="card completion-card" id="summaryCard">
+                <h3>返乡发展图鉴</h3>
+                <div class="summary-grid" id="summaryGrid"></div>
+                <div class="hidden-achievements" id="hiddenAchievements" hidden>
+                    <h4>隐藏成就</h4>
+                    <ul></ul>
+                </div>
+            </div>
+            <div class="completion-actions">
+                <button class="btn btn--primary" data-action="save">保存图鉴</button>
+                <button class="btn btn--ghost" data-action="restart">重新探索</button>
+            </div>
+            <p class="completion-note">数据已加密保存，严格保密仅用于公益研究</p>
+        </section>
+    </template>
+
+    <template id="pauseTemplate">
+        <dialog class="dialog" id="pauseDialog">
+            <form method="dialog">
+                <h3 class="dialog__title">暂停旅程？</h3>
+                <p>是否暂停本次旅程？已解锁的徽章将保留，下次可继续哦～</p>
+                <div class="dialog__footer">
+                    <button class="btn btn--ghost" value="cancel">继续探索</button>
+                    <button class="btn btn--primary" value="confirm">确认暂停</button>
+                </div>
+            </form>
+        </dialog>
+    </template>
+
+    <template id="helpTemplate">
+        <dialog class="dialog" id="helpDialog">
+            <form method="dialog">
+                <h3 class="dialog__title">疑问咨询</h3>
+                <p>如需帮助，可发送邮件至：<a href="mailto:shaunlinx@ilinkgood.cn">shaunlinx@ilinkgood.cn</a></p>
+                <div class="dialog__footer">
+                    <button class="btn btn--primary" value="close">好的</button>
+                </div>
+            </form>
+        </dialog>
+    </template>
+
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" defer></script>
+    <script src="assets/js/main.js" type="module" defer></script>
+</body>
+</html>
